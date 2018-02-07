@@ -1,7 +1,31 @@
+
+
 require(data.table)
 require(Hmisc)
 require(lubridate)
 
+#' calculate RFM
+#'
+#' Calculated the weighted RFM score: recency, frequency, monetary value for customers
+#'
+#' @param data - A data.table containing the transaction record details for every customer
+#' @param weight_recency - weight of recency
+#' @param weight_frequency - wegiht of frequency
+#' @param weight_monetary- weight of monetary value
+#'
+#' @details
+#' \code{data} contains the transactional data. The dataset must contain a column labeled "Customer"
+#' that allows unique customer identification and a column called "TransDate", indicating the purchase date.
+#' The column "PurchAmount" specifies the total spendig of the purchase.
+#'
+#' @return Returns a data.table containing the recency, frequency and monetary scores as well as the weighted final score and the group membership.
+#'
+#' @examples
+#'
+#' some example
+#' dataResult <- RFMfunction(salesClients, 20, 20, 60)
+#' some other example
+#'
 RFMfunction <- function(data, weight_recency=1, weight_frequency=1, weight_monetary=1){
 
   # Ensure that the weights add up to one
