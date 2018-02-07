@@ -9,3 +9,4 @@ Description: Supplies functions to calculate the Recency, Frequency and Monetary
 License: What license is it under?
 Encoding: UTF-8
 LazyData: true
+Depends: data.table, Hmisc, lubridate
